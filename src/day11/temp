@@ -1,0 +1,100 @@
+Monkeys:
+	Monkey 0 inspected 2 times: items=[20, 23, 27, 26]
+	Monkey 1 inspected 4 times: items=[2080, 25, 167, 207, 401, 1046]
+	Monkey 2 inspected 3 times: items=[]
+	Monkey 3 inspected 5 times: items=[]
+Monkeys:
+	Monkey 0 inspected 6 times: items=[695, 10, 71, 135, 350]
+	Monkey 1 inspected 10 times: items=[43, 49, 58, 55, 362]
+	Monkey 2 inspected 4 times: items=[]
+	Monkey 3 inspected 10 times: items=[]
+Monkeys:
+	Monkey 0 inspected 11 times: items=[16, 18, 21, 20, 122]
+	Monkey 1 inspected 15 times: items=[1468, 22, 150, 286, 739]
+	Monkey 2 inspected 4 times: items=[]
+	Monkey 3 inspected 15 times: items=[]
+Monkeys:
+	Monkey 0 inspected 16 times: items=[491, 9, 52, 97, 248, 34]
+	Monkey 1 inspected 20 times: items=[39, 45, 43, 258]
+	Monkey 2 inspected 4 times: items=[]
+	Monkey 3 inspected 20 times: items=[]
+Monkeys:
+	Monkey 0 inspected 22 times: items=[15, 17, 16, 88, 1037]
+	Monkey 1 inspected 24 times: items=[20, 110, 205, 524, 72]
+	Monkey 2 inspected 4 times: items=[]
+	Monkey 3 inspected 26 times: items=[]
+Monkeys:
+	Monkey 0 inspected 27 times: items=[8, 70, 176, 26, 34]
+	Monkey 1 inspected 29 times: items=[481, 32, 36, 186, 2190]
+	Monkey 2 inspected 5 times: items=[]
+	Monkey 3 inspected 31 times: items=[]
+Monkeys:
+	Monkey 0 inspected 32 times: items=[162, 12, 14, 64, 732, 17]
+	Monkey 1 inspected 34 times: items=[148, 372, 55, 72]
+	Monkey 2 inspected 5 times: items=[]
+	Monkey 3 inspected 36 times: items=[]
+Monkeys:
+	Monkey 0 inspected 38 times: items=[51, 126, 20, 26, 136]
+	Monkey 1 inspected 38 times: items=[343, 26, 30, 1546, 36]
+	Monkey 2 inspected 5 times: items=[]
+	Monkey 3 inspected 42 times: items=[]
+Monkeys:
+	Monkey 0 inspected 43 times: items=[116, 10, 12, 517, 14]
+	Monkey 1 inspected 43 times: items=[108, 267, 43, 55, 288]
+	Monkey 2 inspected 5 times: items=[]
+	Monkey 3 inspected 47 times: items=[]
+Monkeys:
+	Monkey 0 inspected 48 times: items=[91, 16, 20, 98]
+	Monkey 1 inspected 48 times: items=[481, 245, 22, 26, 1092, 30]
+	Monkey 2 inspected 6 times: items=[]
+	Monkey 3 inspected 52 times: items=[]
+Monkeys:
+	Monkey 0 inspected 52 times: items=[162, 83, 9, 10, 366, 12, 34]
+	Monkey 1 inspected 54 times: items=[193, 43, 207]
+	Monkey 2 inspected 6 times: items=[]
+	Monkey 3 inspected 56 times: items=[]
+Monkeys:
+	Monkey 0 inspected 59 times: items=[66, 16, 71]
+	Monkey 1 inspected 57 times: items=[343, 176, 20, 22, 773, 26, 72]
+	Monkey 2 inspected 6 times: items=[]
+	Monkey 3 inspected 63 times: items=[]
+Monkeys:
+	Monkey 0 inspected 62 times: items=[116, 60, 8, 9, 259, 10, 26, 34]
+	Monkey 1 inspected 64 times: items=[140, 150]
+	Monkey 2 inspected 6 times: items=[]
+	Monkey 3 inspected 66 times: items=[]
+Monkeys:
+	Monkey 0 inspected 70 times: items=[48, 52, 17]
+	Monkey 1 inspected 66 times: items=[245, 127, 20, 547, 22, 55, 72]
+	Monkey 2 inspected 6 times: items=[]
+	Monkey 3 inspected 74 times: items=[]
+Monkeys:
+	Monkey 0 inspected 73 times: items=[83, 44, 8, 184, 9, 20, 26, 102]
+	Monkey 1 inspected 73 times: items=[110, 36]
+	Monkey 2 inspected 6 times: items=[]
+	Monkey 3 inspected 77 times: items=[]
+Monkeys:
+	Monkey 0 inspected 81 times: items=[14, 17]
+	Monkey 1 inspected 75 times: items=[481, 176, 93, 389, 20, 43, 55, 216]
+	Monkey 2 inspected 7 times: items=[]
+	Monkey 3 inspected 85 times: items=[]
+Monkeys:
+	Monkey 0 inspected 83 times: items=[162, 60, 33, 131, 8, 16, 20, 74]
+	Monkey 1 inspected 83 times: items=[30, 36]
+	Monkey 2 inspected 7 times: items=[]
+	Monkey 3 inspected 87 times: items=[]
+Monkeys:
+	Monkey 0 inspected 91 times: items=[12, 14, 17, 34]
+	Monkey 1 inspected 85 times: items=[343, 127, 70, 277, 43, 157]
+	Monkey 2 inspected 7 times: items=[]
+	Monkey 3 inspected 95 times: items=[]
+Monkeys:
+	Monkey 0 inspected 95 times: items=[116, 44, 25, 94, 16, 54]
+	Monkey 1 inspected 91 times: items=[26, 30, 36, 72]
+	Monkey 2 inspected 7 times: items=[]
+	Monkey 3 inspected 99 times: items=[]
+Monkeys:
+	Monkey 0 inspected 101 times: items=[10, 12, 14, 26, 34]
+	Monkey 1 inspected 95 times: items=[245, 93, 53, 199, 115]
+	Monkey 2 inspected 7 times: items=[]
+	Monkey 3 inspected 105 times: items=[]
