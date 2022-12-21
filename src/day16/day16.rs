@@ -144,9 +144,9 @@ impl Opened {
 
     fn still_closed(&self) -> Vec<u64> {
         let mut res = Vec::with_capacity(self.size);
-        for i in 0..self.size {
+        for i in 0..(self.size as u64) {
             if self.val & (1 << i) == 0 {
-                res.push((1 << i) as u64);
+                res.push(1 << i);
             }
         }
         res
@@ -179,18 +179,34 @@ fn recurse_p2(
     from_elephant: u64,
     time: usize,
     pressure_released: usize,
+    most_pressure_released: usize,
 ) -> usize {
+    // base case
     if time == 0 {
-        return pressure_released
+        return 0
     }
 
     // check cache
     let key = (time, pos_you | pos_elephant, opened.key());
-    match cache.get(&key) {
-        Some(pressure) => return pressure.to_owned(),
-        None => {},
+    if let Some(&pressure) = cache.get(&key) {
+        return pressure
     }
 
+    // ensure it's even possible to beat the best known so far
+    let potential: usize = opened.still_closed()
+        .iter()
+        .map(|key| {
+            match valves.get(key) {
+                Some((rate, _)) => (time - 1) * rate,
+                None => 0,
+            }
+        }).sum();
+
+    if time > 2 && pressure_released + potential < most_pressure_released {
+        return 0
+    }
+
+    // recurse through all options
     let res = {
         let mut moves_you: Vec<Move> = Vec::new();
         let mut already_opened = false;
@@ -217,7 +233,7 @@ fn recurse_p2(
         }
 
         let mut options = Vec::<usize>::new();
-
+        let mut best_known = most_pressure_released;
         for move_you in &moves_you {
             for move_elephant in &moves_elephant {
                 let pos_you_new = match move_you {
@@ -233,9 +249,8 @@ fn recurse_p2(
                 let mut new_opened = opened.clone();
                 move_you.open(&mut new_opened, pos_you);
                 move_elephant.open(&mut new_opened, pos_elephant);
-                // let new_opened = move_you.open(move_elephant.open(opened, pos_elephant), pos_you);
 
-                options.push(recurse_p2(
+                let sub_res = pressure + recurse_p2(
                     cache,
                     new_opened,
                     valves,
@@ -245,16 +260,21 @@ fn recurse_p2(
                     pos_elephant,
                     time - 1,
                     pressure_released + pressure,
-                ));
+                    best_known,
+                );
+
+                if sub_res > best_known {
+                    best_known = sub_res;
+                }
+
+                options.push(sub_res);
             }
         }
 
-        // if options.len() >= 5 {
-        //     println!("T: {}, n={}, ?={}", time, options.len(), pos_you == pos_elephant);
-        // }
-        options.iter().max().cloned().unwrap_or(0usize)
+        options.into_iter().max().unwrap_or(0)
     };
 
+    // save result
     cache.insert(key, res);
     res
 }
@@ -262,15 +282,27 @@ fn recurse_p2(
 pub fn solve_p2(lines: Vec<String>) -> u32 {
     let (keys_map, valves) = parse_lines(lines);
 
-    let mut cache = HashMap::<(usize, u64, u64), usize>::new();
     let opened = Opened::new(keys_map.len());
     let pos_init = *keys_map.get("AA").unwrap();
-    recurse_p2(&mut cache, opened, &valves, pos_init, pos_init, pos_init, pos_init, 26, 0) as u32
+    let mut cache = HashMap::<(usize, u64, u64), usize>::new();
+
+    recurse_p2(
+        &mut cache,
+        opened,
+        &valves,
+        pos_init,
+        pos_init,
+        pos_init,
+        pos_init,
+        26,
+        0,
+        0,
+    ) as u32
 }
 
 #[cfg(test)]
 mod tests {
-    use crate::day16::day16::{Opened, solve_p1, solve_p2};
+    use crate::day16::day16::{contains, Opened, solve_p1, solve_p2};
 
     #[test]
     fn test_opened() {
@@ -278,13 +310,23 @@ mod tests {
 
         for i in 0..32 {
             assert_eq!(opened.is_closed(i << 1), true);
+            assert_eq!(!contains(opened.val, i << 1), true);
         }
+        assert_eq!(opened.still_closed(), (0u64..32).map(|k| 1 << k).collect::<Vec<u64>>());
         for i in 0..16 {
             let key = 1 << i;
             opened.open(key);
             assert_eq!(opened.is_closed(key), false);
             assert_eq!(opened.is_closed(key << 16), true);
+            assert_eq!(!contains(opened.val, key), false);
+            assert_eq!(!contains(opened.val, key << 16), true);
         }
+        for i in 16..30 {
+            let key = 1 << i;
+            opened.open(key);
+            assert_eq!(opened.is_closed(key), false);
+        }
+        assert_eq!(opened.still_closed(), Vec::from([1 << 30, 1 << 31]));
     }
 
     #[test]
